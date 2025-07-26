@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>4-Way Traffic Light Simulator</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🚦 4-Way Traffic Light Simulator</h1>
+        </header>
+        
+        <div class="main-content">
+            <div class="canvas-container">
+                <canvas id="gameCanvas" width="1000" height="1000"></canvas>
+            </div>
+            
+            <div class="control-panel">
+                <div class="panel-section">
+                    <h3>🎮 Game Mode</h3>
+                    <select id="modeSelector">
+                        <option value="fixed">Fixed Timer Mode</option>
+                        <option value="adaptive">Advanced Adaptive Mode</option>
+                    </select>
+                </div>
+                
+                <div class="panel-section">
+                    <h3>🕓 Traffic Light Timing</h3>
+                    <div class="slider-group">
+                        <label for="greenDuration">Green Duration: <span id="greenValue">10</span>s</label>
+                        <input type="range" id="greenDuration" min="5" max="30" value="10">
+                    </div>
+                    <div class="slider-group">
+                        <label for="yellowDuration">Yellow Duration: <span id="yellowValue">3</span>s</label>
+                        <input type="range" id="yellowDuration" min="2" max="8" value="3">
+                    </div>
+                    <div class="slider-group">
+                        <label for="redDuration">Red Duration: <span id="redValue">3</span>s</label>
+                        <input type="range" id="redDuration" min="2" max="10" value="3">
+                    </div>
+                </div>
+                
+                <div class="panel-section">
+                    <h3>🚙 Car Settings</h3>
+                    <div class="slider-group">
+                        <label for="carSpawnRate">Cars per 10s: <span id="spawnValue">4</span></label>
+                        <input type="range" id="carSpawnRate" min="1" max="20" value="4">
+                    </div>
+                    <div class="slider-group">
+                        <label for="carSpeed">Car Speed: <span id="speedValue">25</span> px/s</label>
+                        <input type="range" id="carSpeed" min="10" max="50" value="25">
+                    </div>
+                    <div class="slider-group">
+                        <label for="turnRate">Turn Rate: <span id="turnValue">25</span>%</label>
+                        <input type="range" id="turnRate" min="0" max="50" value="25">
+                    </div>
+                </div>
+                
+                <div class="panel-section adaptive-only" id="adaptiveControls" style="display: none;">
+                    <h3>📡 Sensor Settings</h3>
+                    <div class="slider-group">
+                        <label for="detectorDistance">Detector Distance: <span id="detectorValue">80</span>px</label>
+                        <input type="range" id="detectorDistance" min="30" max="150" value="80">
+                    </div>
+                </div>
+                
+                <div class="panel-section">
+                    <h3>🔄 Controls</h3>
+                    <div class="button-group">
+                        <button id="playPauseBtn" class="control-btn">⏸️ Pause</button>
+                        <button id="resetBtn" class="control-btn">🔄 Reset</button>
+                    </div>
+                </div>
+                
+                <div class="panel-section">
+                    <h3>📊 Statistics</h3>
+                    <div class="stats">
+                        <div class="stat-item">
+                            <span>Total Cars Passed:</span>
+                            <span id="totalCarsPassed">0</span>
+                        </div>
+                        <div class="stat-item">
+                            <span>Average Wait Time:</span>
+                            <span id="avgWaitTime">0.0s</span>
+                        </div>
+                        <div class="stat-item">
+                            <span>Current Cars:</span>
+                            <span id="currentCars">0</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="config.js"></script>
+    <script src="utils.js"></script>
+    <script src="cars.js"></script>
+    <script src="trafficLights.js"></script>
+    <script src="intersection.js"></script>
+    <script src="sensors.js"></script>
+    <script src="controllers.js"></script>
+    <script src="ui.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>
